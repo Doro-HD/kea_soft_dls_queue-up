@@ -1,0 +1,10 @@
+*.sh
+k8
+
+.git
+.gitignore
+kind.config.yaml
+
+node_modules
+
+.vscode

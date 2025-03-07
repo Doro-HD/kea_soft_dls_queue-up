@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ff-rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ff-rabbitmq
+  template:
+    metadata:
+      labels:
+        app: ff-rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3.13
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+              hostPort: 3000
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ff-authenticator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ff-authenticator
+  template:
+    metadata:
+      labels:
+        app: ff-authenticator
+    spec:
+      containers:
+        - name: authenticator
+          image: ff-authenticator:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+              hostPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ff-synchronizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ff-synchronizer
+  template:
+    metadata:
+      labels:
+        app: ff-synchronizer
+    spec:
+      containers:
+        - name: synchronizer
+          image: ff-synchronizer:latest
+          ports:
+          - containerPort: 3306
