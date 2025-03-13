@@ -3,7 +3,7 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-app.get('/', (c) => {
+app.get('/', async (c) => {
   return c.json({ data: 'Hello from admin organiser backend api' });
 })
 
