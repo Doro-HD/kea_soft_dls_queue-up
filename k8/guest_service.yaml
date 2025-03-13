@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ff-guest-backend
+  name: qu-guest-backend
 spec:
   selector:
-    app: ff-guest-backend  # Must match the labels in your Deployment
+    app: qu-guest-backend  # Must match the labels in your Deployment
   ports:
     - protocol: TCP
       port: 5173      # The port exposed inside the cluster
@@ -17,10 +17,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ff-guest-frontend
+  name: qu-guest-frontend
 spec:
   selector:
-    app: ff-guest-frontend  # Must match the labels in your Deployment
+    app: qu-guest-frontend  # Must match the labels in your Deployment
   ports:
     - protocol: TCP
       port: 8000      # The port exposed inside the cluster

@@ -1,16 +1,15 @@
 {
-    "name": "ff_guest_backend",
+    "name": "qu_authenticator_api",
     "type": "module",
     "scripts": {
-        "format": "prettier --config ../../../.prettierrc --write .",
-        "lint": "prettier --config ../../../.prettierrc --check .",
+        "format": "prettier --config ../../.prettierrc --write .",
+        "lint": "prettier --config ../../.prettierrc --check .",
         "dev": "tsx watch src/index.ts",
         "build": "tsc"
     },
     "dependencies": {
         "@hono/node-server": "^1.13.8",
-        "hono": "^4.7.4",
-        "@queue-up/rabbitmq": "workspace:rabbitmq_service@*"
+        "hono": "^4.7.4"
     },
     "devDependencies": {
         "@types/node": "^20.11.17",

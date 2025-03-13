@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-admin-guest-backend
+  name: qu-admin-guest-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-guest-backend
+      app: qu-guest-backend
   template:
     metadata:
       labels:
-        app: ff-guest-backend
+        app: qu-guest-backend
     spec:
       containers:
         - name: guest-backend
-          image: ff-guest-backend:latest
+          image: qu-guest-backend:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
@@ -25,20 +25,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-guest-frontend
+  name: qu-guest-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-guest-frontend
+      app: qu-guest-frontend
   template:
     metadata:
       labels:
-        app: ff-guest-frontend
+        app: qu-guest-frontend
     spec:
       containers:
         - name: guest-frontend
-          image: ff-guest-frontend:latest
+          image: qu-guest-frontend:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 80
@@ -49,16 +49,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-guest-write-db
+  name: qu-guest-write-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-guest-write-db
+      app: qu-guest-write-db
   template:
     metadata:
       labels:
-        app: ff-guest-write-db
+        app: qu-guest-write-db
     spec:
       containers:
         - name: guest-write-db
@@ -74,16 +74,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-guest-read-db
+  name: qu-guest-read-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-guest-read-db
+      app: qu-guest-read-db
   template:
     metadata:
       labels:
-        app: ff-guest-read-db
+        app: qu-guest-read-db
     spec:
       containers:
         - name: guest-read-db

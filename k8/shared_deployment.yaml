@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-rabbitmq
+  name: qu-rabbitmq
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-rabbitmq
+      app: qu-rabbitmq
   template:
     metadata:
       labels:
-        app: ff-rabbitmq
+        app: qu-rabbitmq
     spec:
       containers:
         - name: rabbitmq
@@ -25,20 +25,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-authenticator
+  name: qu-authenticator
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-authenticator
+      app: qu-authenticator
   template:
     metadata:
       labels:
-        app: ff-authenticator
+        app: qu-authenticator
     spec:
       containers:
         - name: authenticator
-          image: ff-authenticator:latest
+          image: qu-authenticator:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 80
@@ -49,19 +49,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-synchronizer
+  name: qu-synchronizer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-synchronizer
+      app: qu-synchronizer
   template:
     metadata:
       labels:
-        app: ff-synchronizer
+        app: qu-synchronizer
     spec:
       containers:
         - name: synchronizer
-          image: ff-synchronizer:latest
+          image: qu-synchronizer:latest
           ports:
           - containerPort: 3306

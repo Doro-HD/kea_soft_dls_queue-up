@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ff-admin-organiser-api
+  name: qu-admin-organiser-api
 spec:
   selector:
-    app: ff-admin-organiser-api  # Must match the labels in your Deployment
+    app: qu-admin-organiser-api  # Must match the labels in your Deployment
   ports:
     - protocol: TCP
       port: 3000      # The port exposed inside the cluster
@@ -17,10 +17,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ff-admin-organiser-frontend
+  name: qu-admin-organiser-frontend
 spec:
   selector:
-    app: ff-admin-organiser-frontend  # Must match the labels in your Deployment
+    app: qu-admin-organiser-frontend  # Must match the labels in your Deployment
   ports:
     - protocol: TCP
       port: 8080      # The port exposed inside the cluster

@@ -1,5 +1,5 @@
 {
-    "name": "ff_guest_frontend",
+    "name": "qu_admin_organiser_frontend",
     "version": "0.0.0",
     "private": true,
     "type": "module",
@@ -13,9 +13,9 @@
         "start": "vite"
     },
     "devDependencies": {
+        "@tanstack/router-plugin": "^1.112.13",
         "@types/react": "^19.0.8",
         "@types/react-dom": "^19.0.3",
-        "@tanstack/router-plugin": "^1.112.13",
         "@vitejs/plugin-react": "^4.3.2",
         "vite": "^6.0.3"
     },

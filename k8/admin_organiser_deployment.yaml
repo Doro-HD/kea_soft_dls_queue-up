@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-admin-organiser-api
+  name: qu-admin-organiser-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-admin-organiser-api
+      app: qu-admin-organiser-api
   template:
     metadata:
       labels:
-        app: ff-admin-organiser-api
+        app: qu-admin-organiser-api
     spec:
       containers:
         - name: admin-organiser-api
-          image: ff-admin-organiser-backend:latest
+          image: qu-admin-organiser-backend:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
@@ -25,20 +25,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-admin-organiser-frontend
+  name: qu-admin-organiser-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-admin-organiser-frontend
+      app: qu-admin-organiser-frontend
   template:
     metadata:
       labels:
-        app: ff-admin-organiser-frontend
+        app: qu-admin-organiser-frontend
     spec:
       containers:
         - name: admin-organiser-frontend
-          image: ff-admin-organiser-frontend:latest
+          image: qu-admin-organiser-frontend:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 80
@@ -49,16 +49,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-admin-organiser-write-db
+  name: qu-admin-organiser-write-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-admin-organiser-write-db
+      app: qu-admin-organiser-write-db
   template:
     metadata:
       labels:
-        app: ff-admin-organiser-write-db
+        app: qu-admin-organiser-write-db
     spec:
       containers:
         - name: admin-organiser-write-db
@@ -74,16 +74,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ff-admin-organiser-read-db
+  name: qu-admin-organiser-read-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ff-admin-organiser-read-db
+      app: qu-admin-organiser-read-db
   template:
     metadata:
       labels:
-        app: ff-admin-organiser-read-db
+        app: qu-admin-organiser-read-db
     spec:
       containers:
         - name: admin-organiser-read-db

@@ -1,9 +1,9 @@
-docker buildx build -f backends.Dockerfile --target ff_admin_organiser_backend -t ff-admin-organiser-backend:latest .
-docker buildx build -f backends.Dockerfile --target ff_guest_backend -t ff-guest-backend:latest .
-docker buildx build -f backends.Dockerfile --target ff_authenticator_api -t ff-authenticator-api:latest .
-docker buildx build -f backends.Dockerfile --target ff_synchronizer_api -t ff-synchronizer-api:latest .
+docker buildx build -f backends.Dockerfile --target qu_admin_organiser_backend -t qu-admin-organiser-backend:latest .
+docker buildx build -f backends.Dockerfile --target qu_guest_backend -t qu-guest-backend:latest .
+docker buildx build -f backends.Dockerfile --target qu_authenticator_api -t qu-authenticator-api:latest .
+docker buildx build -f backends.Dockerfile --target qu_synchronizer_api -t qu-synchronizer-api:latest .
 
-kind load docker-image ff-admin-organiser-backend:latest --name fire-flux
-kind load docker-image ff-guest-backend:latest --name fire-flux
-kind load docker-image ff-authenticator-api:latest --name fire-flux
-kind load docker-image ff-synchronizer-api:latest --name fire-flux
+kind load docker-image qu-admin-organiser-backend:latest --name queue-up
+kind load docker-image qu-guest-backend:latest --name queue-up
+kind load docker-image qu-authenticator-api:latest --name queue-up
+kind load docker-image qu-synchronizer-api:latest --name queue-up

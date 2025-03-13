@@ -17,23 +17,23 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm --filter *_frontend install
 RUN pnpm --filter *_frontend build
 
-RUN pnpm deploy --filter=ff_admin_organiser_frontend --prod /prod/ff_admin_organiser_frontend
-RUN pnpm deploy --filter=ff_guest_frontend --prod /prod/ff_guest_frontend
+RUN pnpm deploy --filter=qu_admin_organiser_frontend --prod /prod/qu_admin_organiser_frontend
+RUN pnpm deploy --filter=qu_guest_frontend --prod /prod/qu_guest_frontend
 
 
-FROM base AS ff_admin_organiser_frontend
+FROM base AS qu_admin_organiser_frontend
 
 WORKDIR /app
 
-COPY --from=builder /prod/ff_admin_organiser_frontend/dist/. /usr/share/nginx/html
+COPY --from=builder /prod/qu_admin_organiser_frontend/dist/. /usr/share/nginx/html
 
 EXPOSE 80
 
 
-FROM base AS ff_guest_frontend
+FROM base AS qu_guest_frontend
 
 WORKDIR /app
 
-COPY --from=builder /prod/ff_guest_frontend/dist/. /usr/share/nginx/html
+COPY --from=builder /prod/qu_guest_frontend/dist/. /usr/share/nginx/html
 
 EXPOSE 80
