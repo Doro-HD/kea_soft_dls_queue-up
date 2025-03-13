@@ -6,6 +6,7 @@
     "type": "module",
     "scripts": {
         "format": "prettier --config ../../.prettierrc --write .",
+        "lint": "prettier --config ../../.prettierrc --check .",
         "build": "tsc"
     },
     "keywords": [],

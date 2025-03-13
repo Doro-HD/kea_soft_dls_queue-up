@@ -6,6 +6,7 @@
     "scripts": {
         "typecheck": "tsc --noEmit",
         "format": "prettier --config ../../../.prettierrc --write .",
+        "lint": "prettier --config ../../../.prettierrc --check .",
         "dev": "vite --port=3001",
         "build": "vite build",
         "serve": "vite preview",

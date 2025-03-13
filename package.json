@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "format": "pnpm -r format",
+    "lint": "pnpm -r lint && eslint --cache --cache-location node_modules/.eslintcache 'packages/**/*.ts' 'apps/**/*.ts'",
     "build": "pnpm -r build"
   },
   "keywords": [],
@@ -18,5 +19,11 @@
   },
   "devDependencies": {
     "prettier": "3.5.3"
+  },
+  "dependencies": {
+    "eslint": "^9.22.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.26.1"
   }
 }
