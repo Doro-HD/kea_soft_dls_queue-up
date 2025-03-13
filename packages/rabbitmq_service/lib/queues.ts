@@ -1,5 +1,5 @@
-import type { ChannelModel } from "amqplib";
-import { createPublisher, startConsumer, type ConsumerFn } from "./service.js";
+import type { ChannelModel } from 'amqplib';
+import { createPublisher, startConsumer, type ConsumerFn } from './service.js';
 
 /**
  * @description
@@ -7,13 +7,17 @@ import { createPublisher, startConsumer, type ConsumerFn } from "./service.js";
  */
 type Queue = {
     createPublisher: (conn: ChannelModel) => ReturnType<typeof createPublisher>;
-    startConsumer: (conn: ChannelModel, consumerFn: ConsumerFn) => ReturnType<typeof startConsumer>;
+    startConsumer: (
+        conn: ChannelModel,
+        consumerFn: ConsumerFn
+    ) => ReturnType<typeof startConsumer>;
 };
 
 function createQueue(queueName: string): Queue {
     return {
         publisher: (conn: ChannelModel) => createPublisher(conn, queueName),
-        consumer: (conn: ChannelModel, consumerFn: ConsumerFn) => startConsumer(conn, queueName, consumerFn)
+        consumer: (conn: ChannelModel, consumerFn: ConsumerFn) =>
+            startConsumer(conn, queueName, consumerFn),
     };
 }
 
@@ -59,6 +63,5 @@ export {
     createPostQueue,
     createCommentQueue,
     createGuestQueue,
-    createTicketQueue
+    createTicketQueue,
 };
-

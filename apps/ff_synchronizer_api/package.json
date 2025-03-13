@@ -1,18 +1,19 @@
 {
-  "name": "ff_synchronizer_api",
-  "type": "module",
-  "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc"
-  },
-  "dependencies": {
-    "@hono/node-server": "^1.13.8",
-    "hono": "^4.7.4",
-    "@queue-up/rabbitmq": "workspace:rabbitmq_service@*"
-  },
-  "devDependencies": {
-    "@types/node": "^20.11.17",
-    "tsx": "^4.7.1",
-    "typescript": "^5.8.2"
-  }
+    "name": "ff_synchronizer_api",
+    "type": "module",
+    "scripts": {
+        "format": "prettier --config ../../.prettierrc --write .",
+        "dev": "tsx watch src/index.ts",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@hono/node-server": "^1.13.8",
+        "hono": "^4.7.4",
+        "@queue-up/rabbitmq": "workspace:rabbitmq_service@*"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.17",
+        "tsx": "^4.7.1",
+        "typescript": "^5.8.2"
+    }
 }

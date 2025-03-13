@@ -1,5 +1,12 @@
 import { connect } from './lib/service.js';
-import { createOrganiserQueue, createEventQueue, createPostQueue, createCommentQueue, createGuestQueue, createTicketQueue} from './lib/queues.js';
+import {
+    createOrganiserQueue,
+    createEventQueue,
+    createPostQueue,
+    createCommentQueue,
+    createGuestQueue,
+    createTicketQueue,
+} from './lib/queues.js';
 
 export {
     connect,
@@ -8,5 +15,5 @@ export {
     createPostQueue,
     createCommentQueue,
     createGuestQueue,
-    createTicketQueue
+    createTicketQueue,
 };

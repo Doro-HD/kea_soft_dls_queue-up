@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "pnpm -r format",
     "build": "pnpm -r build"
   },
   "keywords": [],
@@ -14,5 +15,8 @@
     "ignoredBuiltDependencies": [
       "esbuild"
     ]
+  },
+  "devDependencies": {
+    "prettier": "3.5.3"
   }
 }

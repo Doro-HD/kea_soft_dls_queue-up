@@ -1,0 +1,6 @@
+node_modules
+dist
+routeTree.gen.ts
+README
+.vscode
+.env

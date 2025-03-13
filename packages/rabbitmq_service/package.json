@@ -1,23 +1,24 @@
 {
-  "name": "rabbitmq_service",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "build": "tsc"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.4.1",
-  "dependencies": {
-    "@types/amqplib": "^0.10.7",
-    "amqplib": "^0.10.5",
-    "install": "^0.13.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.11.17",
-    "typescript": "^5.8.2"
-  }
+    "name": "rabbitmq_service",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "format": "prettier --config ../../.prettierrc --write .",
+        "build": "tsc"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.4.1",
+    "dependencies": {
+        "@types/amqplib": "^0.10.7",
+        "amqplib": "^0.10.5",
+        "install": "^0.13.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.17",
+        "typescript": "^5.8.2"
+    }
 }

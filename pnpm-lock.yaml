@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      prettier:
+        specifier: 3.5.3
+        version: 3.5.3
 
   apps/admin_organiser/ff_admin_organiser_backend:
     dependencies:
@@ -85,6 +89,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
+      '@queue-up/rabbitmq':
+        specifier: workspace:rabbitmq_service@*
+        version: link:../../packages/rabbitmq_service
       hono:
         specifier: ^4.7.4
         version: 4.7.4
@@ -104,6 +111,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
+      '@queue-up/rabbitmq':
+        specifier: workspace:rabbitmq_service@*
+        version: link:../../../packages/rabbitmq_service
       hono:
         specifier: ^4.7.4
         version: 4.7.4

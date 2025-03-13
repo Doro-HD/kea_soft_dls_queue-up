@@ -14,17 +14,15 @@ async function createPublisher(conn: ChannelModel, queueName: string) {
 
 type ConsumerFn = (msg: ConsumeMessage | null) => void;
 
-async function startConsumer(conn: ChannelModel, queueName: string, consumeFn: ConsumerFn) {
+async function startConsumer(
+    conn: ChannelModel,
+    queueName: string,
+    consumeFn: ConsumerFn
+) {
     const channel = await conn.createChannel();
     await channel.assertQueue(queueName);
 
     channel.consume(queueName, consumeFn);
 }
 
-
-export {
-    connect,
-    createPublisher,
-    startConsumer,
-    type ConsumerFn
-};
+export { connect, createPublisher, startConsumer, type ConsumerFn };
