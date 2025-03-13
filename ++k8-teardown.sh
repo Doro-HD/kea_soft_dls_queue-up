@@ -16,4 +16,4 @@ kubectl get all -n $NAMESPACE
 echo "Resources removed!"
 
 # Optionally, delete the entire cluster (if you want)
-kind delete cluster --name fire-flux
+kind delete cluster --name queue-up

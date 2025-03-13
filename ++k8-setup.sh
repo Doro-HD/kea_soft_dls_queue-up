@@ -1,5 +1,5 @@
 echo "___Setting up cluster___"
-kind create cluster --name fire-flux --config kind.config.yaml || echo "Cluster already exists"
+kind create cluster --name queue-up --config kind.config.yaml || echo "Cluster already exists"
 
 echo "___Setting up backends and api's___"
 ./+backends-setup.sh
