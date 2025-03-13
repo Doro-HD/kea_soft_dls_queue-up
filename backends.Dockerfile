@@ -10,6 +10,7 @@ WORKDIR /app
 COPY . .
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm --filter *_backend --filter *_api install
 RUN pnpm --filter *_backend --filter *_api build
 
 RUN pnpm deploy --filter=ff_admin_organiser_backend --prod /prod/ff_admin_organiser_backend

@@ -1,5 +1,7 @@
 # Use official NGINX image
 # NGINX will automatically serve files from /usr/share/nginx/html
+FROM node:alpine
+
 FROM nginx:alpine AS base
 
 FROM base AS builder
@@ -12,6 +14,7 @@ RUN apk add bash
 RUN apk add pnpm
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm --filter *_frontend install
 RUN pnpm --filter *_frontend build
 
 RUN pnpm deploy --filter=ff_admin_organiser_frontend --prod /prod/ff_admin_organiser_frontend
