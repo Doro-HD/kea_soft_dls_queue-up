@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qu-admin-organiser-api
+  name: qu-admin-organiser-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qu-admin-organiser-api
+      app: qu-admin-organiser-backend
   template:
     metadata:
       labels:
-        app: qu-admin-organiser-api
+        app: qu-admin-organiser-backend
     spec:
       containers:
-        - name: admin-organiser-api
+        - name: admin-organiser-backend
           image: qu-admin-organiser-backend:latest
           imagePullPolicy: Never
           ports:
@@ -49,46 +49,46 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qu-admin-organiser-write-db
+  name: qu-admin-organiser-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qu-admin-organiser-write-db
+      app: qu-admin-organiser-db
   template:
     metadata:
       labels:
-        app: qu-admin-organiser-write-db
+        app: qu-admin-organiser-db
     spec:
       containers:
-        - name: admin-organiser-write-db
+        - name: admin-organiser-db
           image: mysql:8
           ports:
           - containerPort: 3306
           env:
+            - name: MYSQL_ROOT_USER
+              value: 'queue-up'
             - name: MYSQL_ROOT_PASSWORD
-              value: 'fireflux'
+              value: 'queue-up'
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qu-admin-organiser-read-db
+  name: qu-admin-organiser-synchronizer-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qu-admin-organiser-read-db
+      app: qu-admin-organiser-synchronizer-api
   template:
     metadata:
       labels:
-        app: qu-admin-organiser-read-db
+        app: qu-admin-organiser-synchronizer-api
     spec:
       containers:
-        - name: admin-organiser-read-db
-          image: mongo:8
+        - name: admin-organiser-synchronizer-api
+          image: qu-admin-organiser-synchronizer:latest
           ports:
-          - containerPort: 27017
-
----
+          - containerPort: 3306

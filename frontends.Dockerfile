@@ -13,8 +13,7 @@ RUN apk add --no-cache gcompat
 RUN apk add bash
 RUN apk add pnpm
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN pnpm --filter *_frontend install
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm --filter *_frontend install --frozen-lockfile
 RUN pnpm --filter *_frontend build
 
 RUN pnpm deploy --filter=qu_admin_organiser_frontend --prod /prod/qu_admin_organiser_frontend

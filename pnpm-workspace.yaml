@@ -1,8 +1,9 @@
 packages:
   - packages/*
   - apps/admin_organiser/qu_admin_organiser_backend
+  - apps/admin_organiser/qu_admin_organiser_synchronizer_api
   - apps/admin_organiser/qu_admin_organiser_frontend
   - apps/guest/qu_guest_backend
+  - apps/guest/qu_guest_synchronizer_api
   - apps/guest/qu_guest_frontend
   - apps/qu_authenticator_api
-  - apps/qu_synchronizer_api

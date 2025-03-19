@@ -49,46 +49,41 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qu-guest-write-db
+  name: qu-guest-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qu-guest-write-db
+      app: qu-guest-db
   template:
     metadata:
       labels:
-        app: qu-guest-write-db
+        app: qu-guest-db
     spec:
       containers:
-        - name: guest-write-db
-          image: mysql:8
+        - name: guest-db
+          image: mongo:8
           ports:
-          - containerPort: 3306
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: 'fireflux'
+          - containerPort: 27017
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qu-guest-read-db
+  name: qu-guest-synchronizer-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qu-guest-read-db
+      app: qu-guest-synchronizer-api
   template:
     metadata:
       labels:
-        app: qu-guest-read-db
+        app: qu-guest-synchronizer-api
     spec:
       containers:
-        - name: guest-read-db
-          image: mongo:8
+        - name: guest-synchronizer-api
+          image: qu-admin-organiser-synchronizer:latest
           ports:
-          - containerPort: 27017
-
----
+          - containerPort: 3306

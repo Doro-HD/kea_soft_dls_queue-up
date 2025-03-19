@@ -1,9 +1,9 @@
 {
-    "name": "qu_synchronizer_api",
+    "name": "qu_admin_organiser_synchronizer_api",
     "type": "module",
     "scripts": {
-        "format": "prettier --config ../../.prettierrc --write .",
-        "lint": "prettier --config ../../.prettierrc --check .",
+        "format": "prettier --config ../../../.prettierrc --write .",
+        "lint": "prettier --config ../../../.prettierrc --check .",
         "dev": "tsx watch src/index.ts",
         "build": "tsc"
     },
