@@ -22,27 +22,19 @@ spec:
 
 ---
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: qu-guest-frontend
+  name: qu-guest-backend
 spec:
-  replicas: 1
   selector:
-    matchLabels:
-      app: qu-guest-frontend
-  template:
-    metadata:
-      labels:
-        app: qu-guest-frontend
-    spec:
-      containers:
-        - name: guest-frontend
-          image: qu-guest-frontend:latest
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 80
-              hostPort: 8000
+    app: qu-guest-backend  # Must match the labels in your Deployment
+  ports:
+    - protocol: TCP
+      port: 5173      # The port exposed inside the cluster
+      targetPort: 3000  # The container's port (update as needed)
+      nodePort: 30300  # Static port on the node (choose any available port)
+  type: NodePort  # Exposes the service on a port accessible outside the cluster
 
 ---
 
@@ -84,6 +76,7 @@ spec:
     spec:
       containers:
         - name: guest-synchronizer-api
-          image: qu-admin-organiser-synchronizer:latest
+          image: qu-admin-organiser-synchronizer-api:latest
+          imagePullPolicy: Never
           ports:
           - containerPort: 3306

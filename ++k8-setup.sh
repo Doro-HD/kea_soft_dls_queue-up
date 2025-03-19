@@ -7,4 +7,4 @@ echo "___Building frontend images___"
 ./+frontends-setup.sh
 
 echo "___Applying k8 deployments and services___"
-kubectl apply -f k8
+kubectl apply -f k8 -R

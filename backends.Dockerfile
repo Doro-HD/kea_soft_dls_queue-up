@@ -15,11 +15,11 @@ RUN pnpm --filter *_backend --filter *_api build
 
 # admin organiser
 RUN pnpm deploy --filter=qu_admin_organiser_backend --prod /prod/qu_admin_organiser_backend
-RUN pnpm deploy --filter=qu_synchronizer_api --prod /prod/qu_admin_organiser_synchronizer_api
+RUN pnpm deploy --filter=qu_admin_organiser_synchronizer_api --prod /prod/qu_admin_organiser_synchronizer_api
 
 # guest
 RUN pnpm deploy --filter=qu_guest_backend --prod /prod/qu_guest_backend
-RUN pnpm deploy --filter=qu_synchronizer_api --prod /prod/qu_guest_synchronizer_api
+RUN pnpm deploy --filter=qu_guest_synchronizer_api --prod /prod/qu_guest_synchronizer_api
 
 # shared
 RUN pnpm deploy --filter=qu_authenticator_api --prod /prod/qu_authenticator_api
