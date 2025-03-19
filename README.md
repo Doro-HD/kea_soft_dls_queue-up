@@ -20,4 +20,4 @@ This section is used to help keep track of which ports are in use where
 |Guest backend           |5137     |30300    |5173        |3000          |
 |Guest frontend          |8000     |30400    |8000        |80            |
 |Authenticator api       |5000     |30500    |5000        |3000          |
-|Rabbitmq service        |5672     |30600    |5672        |5672          |
+|Rabbitmq service        |15672    |30600    |15672       |15672         |
