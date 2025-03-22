@@ -65,6 +65,56 @@ spec:
 
 ---
 
+apiVersion: v1
+kind: Service
+metadata:
+  name: qu-admin-organiser-synchronizer-db
+spec:
+  clusterIP: None
+  selector:
+    app: qu-admin-organiser-synchronizer-db
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: qu-admin-organiser-synchronizer-db
+spec:
+  serviceName: qu-admin-organiser-synchronizer-db
+  replicas: 3
+  selector:
+    matchLabels:
+      app: qu-admin-organiser-syncrhonizer-db
+  template:
+    metadata:
+      labels:
+        app: qu-admin-organiser-syncrhonizer-db
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:8.0
+        command:
+          - "mongod"
+          - "--replSet"
+          - "rs1"
+          - "--bind_ip_all"
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: qu-admin-organiser-synchronizer-db-storage
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: qu-admin-organiser-synchronizer-db-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -1,4 +1,6 @@
 NAMESPACE="default"
 
 # Apply the deployment and service (replace this with your own yaml file)
-kubectl apply -f admin_organiser -n $NAMESPACE
+kubectl apply -f authenticator.yaml -n $NAMESPACE
+kubectl apply -f rabbitmq_service.yaml -n $NAMESPACE
+kubectl apply -R -f admin_organiser -n $NAMESPACE
