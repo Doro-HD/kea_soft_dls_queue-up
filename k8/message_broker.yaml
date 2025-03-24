@@ -54,7 +54,6 @@ spec:
           ports:
             - containerPort: 5672
             - containerPort: 15672
-              hostPort: 15672
 
 ---
 
@@ -81,6 +80,7 @@ metadata:
   name: qu-message-broker-management-service
   namespace: qu-message-broker
 spec:
+  type: NodePort  # Exposes the service on a port accessible outside the cluster
   selector:
     app: qu-message-broker-deployment  # Must match the labels in your Deployment
   ports:
@@ -88,4 +88,3 @@ spec:
       port: 15672      # The port exposed inside the cluster
       targetPort: 15672  # The container's port (update as needed)
       nodePort: 30600  # Static port on the node (choose any available port)
-  type: NodePort  # Exposes the service on a port accessible outside the cluster
