@@ -1,27 +1,28 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: qu-admin-organiser-backend
+  name: qu-guest-backend
 
 ---
 
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: qu-admin-organiser-allow-db-host
-  namespace: qu-admin-organiser-backend
+  name: qu-guest-allow-db-host
+  namespace: qu-guest-backend
 spec:
   podSelector:
     matchLabels:
-      app: qu-admin-organiser-backend-deployment
+      app: qu-guest-backend-deployment
   ingress:
     - from:
         - namespaceSelector:
             matchLabels:
-              kubernetes.io/metadata.name: qu-admin-organiser-db
+              kubernetes.io/metadata.name: qu-guest-db
       ports:
         - protocol: TCP
-          port: 3306
+          port: 27017
+    # beware that this cidr should be machine specific in a prod setting
     - from:
       - ipBlock:
           cidr: 0.0.0.0/0
@@ -32,10 +33,10 @@ spec:
     - to:
       - namespaceSelector:
           matchLabels:
-            kubernetes.io/metadata.name: qu-admin-organiser-db
+            kubernetes.io/metadata.name: qu-guest-db
       ports:
         - protocol: TCP
-          port: 3306
+          port: 27017
     # beware that this cidr should be machine specific in a prod setting
     - to:
       - ipBlock:
@@ -44,22 +45,21 @@ spec:
         - protocol: TCP
           port: 3000
 
-
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: qu-admin-organiser-backend-service
-  namespace: qu-admin-organiser-backend
+  name: qu-guest-backend-service
+  namesapce: qu-guest-backend
 spec:
   selector:
-    app: qu-admin-organiser-backend-deployment  # Must match the labels in your Deployment
+    app: qu-guest-backend-deployment  # Must match the labels in your Deployment
   ports:
     - protocol: TCP
-      port: 3000      # The port exposed inside the cluster
+      port: 5173      # The port exposed inside the cluster
       targetPort: 3000  # The container's port (update as needed)
-      nodePort: 30100  # Static port on the node (choose any available port)
+      nodePort: 30300  # Static port on the node (choose any available port)
   type: NodePort  # Exposes the service on a port accessible outside the cluster
 
 ---
@@ -67,22 +67,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qu-admin-organiser-backend-deployment
-  namespace: qu-admin-organiser-backend
+  name: qu-guest-backend-deployment
+  namespace: qu-guest-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qu-admin-organiser-backend-deployment
+      app: qu-guest-backend-deployment
   template:
     metadata:
       labels:
-        app: qu-admin-organiser-backend-deployment
+        app: qu-guest-backend-deployment
     spec:
       containers:
-        - name: admin-organiser-backend
-          image: qu-admin-organiser-backend:latest
+        - name: guest-backend
+          image: qu-guest-backend:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
-
