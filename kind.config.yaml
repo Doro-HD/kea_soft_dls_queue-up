@@ -14,7 +14,7 @@ nodes:
         hostPort: 5173
       # guest frontend
       - containerPort: 30400
-        hostPort: 8000
+        hostPort: 8001
       # authenticator api
       - containerPort: 30500
         hostPort: 5000

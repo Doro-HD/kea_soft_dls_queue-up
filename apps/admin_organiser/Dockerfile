@@ -39,7 +39,7 @@ CMD ["node", "/app/dist/index.js"]
 
 
 # frontend
-FROM node:alpine AS qu_admin_organiser_frontend
+FROM nginx:alpine3.21 AS qu_admin_organiser_frontend
 
 WORKDIR /app
 
