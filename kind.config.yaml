@@ -15,4 +15,10 @@ nodes:
       # guest frontend
       - containerPort: 30400
         hostPort: 8000
+      # authenticator api
+      - containerPort: 30500
+        hostPort: 5000
+      # rabbitmq service
+      - containerPort: 30600
+        hostPort: 15672
   - role: worker

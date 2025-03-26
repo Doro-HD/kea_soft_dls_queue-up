@@ -26,6 +26,7 @@ importers:
         version: 3.5.3
 
   apps/admin_organiser/qu_admin_organiser_backend:
+  apps/admin_organiser/qu_admin_organiser_backend:
     dependencies:
       '@hono/node-server':
         specifier: ^1.13.8
@@ -47,6 +48,7 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
 
+  apps/admin_organiser/qu_admin_organiser_frontend:
   apps/admin_organiser/qu_admin_organiser_frontend:
     dependencies:
       '@tanstack/react-router':

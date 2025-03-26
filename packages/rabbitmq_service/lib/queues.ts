@@ -15,8 +15,9 @@ type Queue = {
 
 function createQueue(queueName: string): Queue {
     return {
-        publisher: (conn: ChannelModel) => createPublisher(conn, queueName),
-        consumer: (conn: ChannelModel, consumerFn: ConsumerFn) =>
+        createPublisher: (conn: ChannelModel) =>
+            createPublisher(conn, queueName),
+        startConsumer: (conn: ChannelModel, consumerFn: ConsumerFn) =>
             startConsumer(conn, queueName, consumerFn),
     };
 }
