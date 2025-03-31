@@ -26,7 +26,6 @@ importers:
         version: 3.5.3
 
   apps/admin_organiser/qu_admin_organiser_backend:
-  apps/admin_organiser/qu_admin_organiser_backend:
     dependencies:
       '@hono/node-server':
         specifier: ^1.13.8
@@ -48,7 +47,6 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
 
-  apps/admin_organiser/qu_admin_organiser_frontend:
   apps/admin_organiser/qu_admin_organiser_frontend:
     dependencies:
       '@tanstack/react-router':
@@ -79,6 +77,28 @@ importers:
       vite:
         specifier: ^6.0.3
         version: 6.2.0(@types/node@20.17.23)(tsx@4.19.3)
+
+  apps/admin_organiser/qu_admin_organiser_synchronizer_api:
+    dependencies:
+      '@hono/node-server':
+        specifier: ^1.13.8
+        version: 1.13.8(hono@4.7.4)
+      '@queue-up/rabbitmq':
+        specifier: workspace:rabbitmq_service@*
+        version: link:../../../packages/rabbitmq_service
+      hono:
+        specifier: ^4.7.4
+        version: 4.7.4
+    devDependencies:
+      '@types/node':
+        specifier: ^20.11.17
+        version: 20.17.23
+      tsx:
+        specifier: ^4.7.1
+        version: 4.19.3
+      typescript:
+        specifier: ^5.8.2
+        version: 5.8.2
 
   apps/guest/qu_guest_backend:
     dependencies:
@@ -133,11 +153,14 @@ importers:
         specifier: ^6.0.3
         version: 6.2.0(@types/node@20.17.23)(tsx@4.19.3)
 
-  apps/qu_authenticator_api:
+  apps/guest/qu_guest_synchronizer_api:
     dependencies:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
+      '@queue-up/rabbitmq':
+        specifier: workspace:rabbitmq_service@*
+        version: link:../../../packages/rabbitmq_service
       hono:
         specifier: ^4.7.4
         version: 4.7.4
@@ -152,14 +175,11 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
 
-  apps/qu_synchronizer_api:
+  apps/qu_authenticator_api:
     dependencies:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
-      '@queue-up/rabbitmq':
-        specifier: workspace:rabbitmq_service@*
-        version: link:../../packages/rabbitmq_service
       hono:
         specifier: ^4.7.4
         version: 4.7.4
