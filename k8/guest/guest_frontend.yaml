@@ -40,7 +40,7 @@ metadata:
   namespace: qu-guest-frontend
 spec:
   selector:
-    app: qu-guest-frontend  # Must match the labels in your Deployment
+    app: qu-guest-frontend-deployment  # Must match the labels in your Deployment
   ports:
     - protocol: TCP
       port: 8000      # The port exposed inside the cluster
