@@ -38,8 +38,6 @@ CMD ["node", "/app/dist/index.js"]
 # frontend
 FROM nginx:alpine3.21 AS qu_guest_frontend
 
-WORKDIR /app
-
 COPY --from=builder /prod/qu_guest_frontend/dist/. /usr/share/nginx/html
 
 EXPOSE 80

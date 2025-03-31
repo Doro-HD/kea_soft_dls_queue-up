@@ -30,9 +30,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
-      '@queue-up/rabbitmq':
-        specifier: workspace:rabbitmq_service@*
-        version: link:../../../packages/rabbitmq_service
+      '@queue-up/message_broker':
+        specifier: workspace:message-broker@*
+        version: link:../../../packages/message_broker
       hono:
         specifier: ^4.7.4
         version: 4.7.4
@@ -105,9 +105,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
-      '@queue-up/rabbitmq':
-        specifier: workspace:rabbitmq_service@*
-        version: link:../../../packages/rabbitmq_service
+      '@queue-up/message-broker':
+        specifier: workspace:message-broker@*
+        version: link:../../../packages/message_broker
       hono:
         specifier: ^4.7.4
         version: 4.7.4
@@ -194,7 +194,7 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
 
-  packages/rabbitmq_service:
+  packages/message_broker:
     dependencies:
       '@types/amqplib':
         specifier: ^0.10.7

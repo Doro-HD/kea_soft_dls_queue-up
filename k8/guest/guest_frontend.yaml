@@ -21,7 +21,7 @@ spec:
           cidr: 0.0.0.0/0
       ports:
         - protocol: TCP
-          port: 8000
+          port: 80
   egress:
     # beware that this cidr should be machine specific in a prod setting
     - to:
@@ -29,7 +29,7 @@ spec:
           cidr: 0.0.0.0/0
       ports:
         - protocol: TCP
-          port: 8000
+          port: 80
 
 ---
 
