@@ -68,7 +68,7 @@ case "$choice" in
         build_guest
         build_authenticator
 
-        gum format  "# Applying k8 deployments and services"
+        gum log -l info  "Applying k8 deployments and services"
         kubectl apply -f k8 -R
         ;;
     Admin/Organiser)
