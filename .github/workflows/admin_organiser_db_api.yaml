@@ -37,6 +37,6 @@ jobs:
         run: pnpm --filter $PACKAGE build
 
       - name: Publish to npm
-        run: pnpm --filter $PACKAGE publish
+        run: pnpm --filter $PACKAGE publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
