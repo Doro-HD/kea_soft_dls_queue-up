@@ -34,13 +34,6 @@ jobs:
       - name: Install dependencies
         run: pnpm --filter qu-admin-organiser-db-api install
 
-      - name: Create .npmrc file
-        run: |
-          cat <<EOF > $NPM_CONFIG_USERCONFIG
-          @CoderBois-2.0:registry=https://npm.pkg.github.com/
-          //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
-          EOF
-
       - name: Build package
         run: pnpm --filter $PACKAGE build
       
