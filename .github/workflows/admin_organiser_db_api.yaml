@@ -5,7 +5,7 @@ on:
     branches:
       - BOIS-11/*
     paths:
-      - 'packages/qu_admin_organiser_db_api'
+      - 'packages/qu_admin_organiser_db_api/**'
 
 jobs:
   publish:
