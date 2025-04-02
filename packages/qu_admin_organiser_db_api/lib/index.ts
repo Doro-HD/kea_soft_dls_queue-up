@@ -1,5 +1,5 @@
 import { drizzle } from "drizzle-orm/mysql2";
-import { eventsSchema, ticketsSchema } from './schemas/index.js';
+import { eventsSchema, ticketsSchema, postsSchema } from './schemas/index.js';
 import mysql from "mysql2/promise";
 
 const DATABASE_URL = process.env.DATABASE_URL ?? 'No Database Url';
@@ -9,7 +9,7 @@ async function connect() {
         uri: DATABASE_URL
     });
 
-    return drizzle({ client: conn, schema: { ...eventsSchema, ...ticketsSchema }, mode: 'default'})
+    return drizzle({ client: conn, schema: { ...eventsSchema, ...ticketsSchema, ...postsSchema }, mode: 'default'})
 }
 
 function getDB() {
