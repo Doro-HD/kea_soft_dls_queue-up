@@ -34,7 +34,7 @@ jobs:
         run: pnpm --filter qu-admin-organiser-db-api install
 
       - name: Create .npmrc file
-        run: echo "@Doro-HD:registry=https://npm.pkg.github.com" > .npmrc
+        run: echo "@CoderBois-2.0:registry=https://npm.pkg.github.com" > .npmrc
 
       - name: Build package
         run: pnpm --filter $PACKAGE build
