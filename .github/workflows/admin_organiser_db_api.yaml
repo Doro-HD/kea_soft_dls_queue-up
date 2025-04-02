@@ -1,0 +1,42 @@
+name: Publish admin organiser db api
+
+on:
+  push:
+    branches:
+      - BOIS-11/*
+    paths:
+      - 'packages/qu_admin_organiser_db_api'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    env:
+      PACKAGE: --filter qu-admin-organiser-db-api
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm --filter qu-admin-organiser-db-api install
+
+      - name: Build package
+        run: pnpm --filter $PACKAGE build
+
+      - name: Publish to npm
+        run: pnpm --filter $PACKAGE publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
