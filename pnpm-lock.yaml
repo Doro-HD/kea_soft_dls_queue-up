@@ -86,12 +86,18 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
+<<<<<<< HEAD
       '@queue-up/db-api':
         specifier: workspace:qu-admin-organiser-db-api@*
         version: link:../../../packages/qu_admin_organiser_db_api
       '@queue-up/message-broker':
         specifier: workspace:message-broker@*
         version: link:../../../packages/message_broker
+=======
+      '@queue-up/rabbitmq':
+        specifier: workspace:rabbitmq_service@*
+        version: link:../../../packages/rabbitmq_service
+>>>>>>> 5237705b80a5a9a65f4a6d4d630c8c06c5ffe244
       hono:
         specifier: ^4.7.4
         version: 4.7.4
@@ -164,9 +170,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.13.8(hono@4.7.4)
-      '@queue-up/message-broker':
-        specifier: workspace:message-broker@*
-        version: link:../../../packages/message_broker
+      '@queue-up/rabbitmq':
+        specifier: workspace:rabbitmq_service@*
+        version: link:../../../packages/rabbitmq_service
       hono:
         specifier: ^4.7.4
         version: 4.7.4
