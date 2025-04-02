@@ -33,10 +33,14 @@ jobs:
       - name: Install dependencies
         run: pnpm --filter qu-admin-organiser-db-api install
 
+      - name: Create .npmrc file
+        run: echo "@Doro-HD:registry=https://npm.pkg.github.com" > .npmrc
+
       - name: Build package
         run: pnpm --filter $PACKAGE build
+      
+      - name: Publish to github packages
+        run: pnpm publish --no-git-checks
 
-      - name: Publish to npm
-        run: pnpm --filter $PACKAGE publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
