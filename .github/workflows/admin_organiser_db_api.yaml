@@ -15,7 +15,7 @@ jobs:
       packages: write
       id-token: write
     env:
-      PACKAGE: --filter qu-admin-organiser-db-api
+      PACKAGE: qu-admin-organiser-db-api
 
     steps:
       - name: Checkout code
