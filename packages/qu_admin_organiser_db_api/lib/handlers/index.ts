@@ -1,4 +1,4 @@
-import * as eventsHandler from './eventsHandler';
+import * as eventsHandler from './eventsHandler.js';
 
 export {
     eventsHandler

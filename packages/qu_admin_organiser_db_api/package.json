@@ -1,5 +1,5 @@
 {
-  "name": "admin_organiser_db_api",
+  "name": "qu-admin-organiser-db-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
