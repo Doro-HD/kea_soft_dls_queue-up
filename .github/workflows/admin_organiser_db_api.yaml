@@ -16,6 +16,7 @@ jobs:
       id-token: write
     env:
       PACKAGE: qu-admin-organiser-db-api
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -35,7 +36,7 @@ jobs:
 
       - name: Create .npmrc file
         run: |
-          cat <<EOF > ~/.npmrc
+          cat <<EOF > $NPM_CONFIG_USERCONFIG
           @CoderBois-2.0:registry=https://npm.pkg.github.com/
           //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
           EOF
@@ -45,6 +46,3 @@ jobs:
       
       - name: Publish to github packages
         run: pnpm --filter $PACKAGE publish --no-git-checks
-
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
